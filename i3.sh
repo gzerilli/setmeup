@@ -2,6 +2,28 @@
 
 
 
+##### SCRIPT
+
+#Install xorg server
+echo -n "Installing xorg server... "
+sudo pacman -S xorg-server xorg-server-utils xorg-apps xorg-xinit
+echo "DONE!"
+
+#Install driver video
+read -n 1 -p "What driver you want to install?
+1) Intel
+2) Nvidia
+3) AMD" ANS;
+
+case $ANS in
+	1)
+		sudo pacman -S xf86-video-intel lib32-mesa-libgl;;
+	2)
+		sudo pacman -S xf86-video-nouveau lib32-mesa-libgl;;
+	3)
+		sudo pacman -S xf86-video-ati lib32-mesa-libgl;;
+esac
+
 # Check if i3 is installed
 echo -n "Checking if i3 is installed... "
 if [[ ! -d $HOME/.i3 ]]; then
@@ -10,15 +32,6 @@ if [[ ! -d $HOME/.i3 ]]; then
 else
 	echo "i3 Windows Manager already installed"
 fi
-
-
-
-# Backup config file in $original_dir
-#echo -n "Moving original config file to $original_dir... "
-#mv $HOME/.i3/config $original_dir/i3config
-#echo "DONE!"
-
-
 
 # Create symlink to the updated i3 config file
 echo -n "Creating symlink for i3 config file in $HOME/.i3... "
