@@ -58,7 +58,7 @@ echo "DONE!"
 
 # Clone dotfiles repository and change to it
 echo "Cloning dotfiles repository and change to it"
-git clone git@github.com:$user/dotfiles.git
+git clone https://github.com/$user/dotfiles.git
 cd $dotfiles_dir
 echo "DONE!"
 
