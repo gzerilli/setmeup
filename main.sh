@@ -5,6 +5,7 @@
 original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
 dotfiles_dir=$HOME/dev/dotfiles
+script_dir=$HOME/dev/dotfiles/scripts
 is_git=$?
 
 #####
@@ -16,9 +17,7 @@ is_git=$?
 # Update and upgrade pacman
 sudo pacman -Syyu
 
-
-
-# Check if GIT is not installed and download it
+# Install Git from official repositories
 echo -n "Installing Git... "
 sudo pacman -S git
 
@@ -33,37 +32,27 @@ git config --global user.email "$email"
 
 echo "Git basic configuration... DONE!"
 
-
-
 # Create hidden directory to backup original configuration files
 echo -n "Creating hidden $original_dir directory to backup config files... "
 mkdir -p $original_dir
 echo "DONE!"
-
-
 
 # Create dev directory to clone the repository (personal preference)
 echo -n "Creating $dev_dir to clone the dotfiles repository and change to that directory... "
 mkdir -p $dev_dir && cd $dev_dir
 echo "DONE!"
 
-
-
 # Clone dotfiles repository and change to it
-echo "Cloning dotfiles repository and change to it"
+echo "Cloning dotfiles repository... "
 git clone https://github.com/$user/dotfiles.git
-cd $dotfiles_dir
 echo "DONE!"
 
-
-
 # Start i3 installation
-chmod a+x i3.sh
-source i3.sh
-
-
+chmod a+x $script_dir/i3.sh
+source $script_dir/i3.sh
 
 # Start URxvt installation
-chmod a+x urxvt.sh
-source urxvt.sh
+chmod a+x $script_dir/urxvt.sh
+source $script_dir/urxvt.sh
+
 #####
