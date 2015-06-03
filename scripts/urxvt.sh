@@ -15,8 +15,8 @@ fi
 
 # Create symlink to the updated URxvt config file
 echo -n "Checking if custom config file exists... "
-if [[ -f $dotfile_dir/Xresorces ]]; then
-	ln -s $dotfiles_dir/Xresources $HOME/.Xresources
+if [[ -f $config_dir/Xresorces ]]; then
+	ln -s $config_dir/Xresources $HOME/.Xresources
 else
 	echo "Custom config file not found, keeping original"
 fi

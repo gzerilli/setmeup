@@ -4,8 +4,8 @@
 
 original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
-dotfiles_dir=$HOME/dev/dotfiles
-script_dir=$HOME/dev/dotfiles/scripts
+config_dir=$HOME/dev/dotfiles/config
+scripts_dir=$HOME/dev/dotfiles/scripts
 is_git=$?
 
 #####
@@ -48,11 +48,11 @@ git clone https://github.com/$user/dotfiles.git
 echo "DONE!"
 
 # Start i3 installation
-chmod a+x $script_dir/i3.sh
-source $script_dir/i3.sh
+chmod a+x $scripts_dir/i3.sh
+source $scripts_dir/i3.sh
 
 # Start URxvt installation
-chmod a+x $script_dir/urxvt.sh
-source $script_dir/urxvt.sh
+chmod a+x $scripts_dir/urxvt.sh
+source $scripts_dir/urxvt.sh
 
 #####

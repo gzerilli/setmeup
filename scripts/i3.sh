@@ -36,9 +36,9 @@ fi
 
 # Create symlink to the updated i3 config file
 echo -n "Checking if custom config file exists... "
-if [[ -f $dotfiles_dir/i3config ]]; then
+if [[ -f $config/i3config ]]; then
 	mkdir -p $HOME/.i3
-	ln -s $dotfiles_dir/i3config $HOME/.i3/config
+	ln -s $config_dir/i3config $HOME/.i3/config
 else
 	echo "Custom config file not found, keeping original."
 fi
