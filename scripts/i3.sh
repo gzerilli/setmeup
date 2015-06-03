@@ -30,14 +30,16 @@ echo -n "Checking if i3 is installed... "
 if [[ ! -d $HOME/.i3 ]]; then
 	echo "i3 not installed, starting installation"
 	sudo pacman -S i3
+	mkdir -p $HOME/.i3
 else
-	echo "i3 Windows Manager already installed"
+	echo "i3 Windows Manager already installed, backing up original config"
+	cp $HOME/.i3/config $original_dir/i3config
 fi
 
 # Create symlink to the updated i3 config file
 echo -n "Checking if custom config file exists... "
 if [[ -f $config/i3config ]]; then
-	mkdir -p $HOME/.i3
+	rm $HOME/.i3/config
 	ln -s $config_dir/i3config $HOME/.i3/config
 else
 	echo "Custom config file not found, keeping original."
