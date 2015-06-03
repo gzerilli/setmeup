@@ -22,4 +22,5 @@ fi
 
 # Create symlink to the updated i3 config file
 echo -n "Creating symlink for i3 config file in $HOME/.i3... "
+mkdir -p $HOME/.i3
 ln -s $dotfiles_dir/i3config $HOME/.i3/config
