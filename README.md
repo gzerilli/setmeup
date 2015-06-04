@@ -1,2 +1,2 @@
-# dotfiles
-my dotfiles
+# setmeup
+Script to autoconfig my ArchLinux

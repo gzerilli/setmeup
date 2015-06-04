@@ -4,8 +4,8 @@
 
 original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
-config_dir=$HOME/dev/dotfiles/config
-scripts_dir=$HOME/dev/dotfiles/scripts
+config_dir=$HOME/dev/dotfiles
+scripts_dir=$HOME/dev/setmeup/scripts
 scripts="i3 urxvt vim feh mupdf htop"
 
 #####
@@ -45,12 +45,13 @@ mkdir -p $original_dir
 echo "DONE!"
 
 # Create dev directory to clone the repository (personal preference)
-echo -n "Creating $dev_dir to clone the dotfiles repository and change to that directory... "
+echo -n "Creating $dev_dir to clone the setmeup repository and change to that directory... "
 mkdir -p $dev_dir && cd $dev_dir
 echo "DONE!"
 
-# Clone dotfiles repository and change to it
-echo "Cloning dotfiles repository... "
+# Clone setmeup repository and change to it
+echo "Cloning setmeup and dotfiles repositories... "
+git clone https://github.com/$user/setmeup.git
 git clone https://github.com/$user/dotfiles.git
 echo "DONE!"
 
