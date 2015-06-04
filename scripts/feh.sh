@@ -18,6 +18,7 @@ fi
 # Create symlink to the updated vim config file
 echo -n "Checking if a background file exists... "
 if [[ -f $config_dir/background.jpg ]]; then
+	echo "Setting background image"
 	mkdir -p $HOME/pictures
 	ln -s $config_dir/background.jpg $HOME/pictures/background.jpg
 else

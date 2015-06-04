@@ -6,7 +6,7 @@ original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
 config_dir=$HOME/dev/dotfiles/config
 scripts_dir=$HOME/dev/dotfiles/scripts
-scripts="i3 urxvt vim feh"
+scripts="i3 urxvt vim feh mupdf htop"
 
 #####
 
@@ -57,25 +57,9 @@ echo "DONE!"
 # Start launching scripts
 for script in $scripts; do
 	echo "Giving executable permission to $script.sh"
-	chmod +x $scripts_dir/$script.sh
+	chmod a+x $scripts_dir/$script.sh
 	echo "Executing $script.sh"
 	source $scripts_dir/$script.sh
 done
-
-# Start i3 installation
-#chmod a+x $scripts_dir/i3.sh
-#source $scripts_dir/i3.sh
-
-# Start URxvt installation
-#chmod a+x $scripts_dir/urxvt.sh
-#source $scripts_dir/urxvt.sh
-
-# Start vim installation
-#chmod a+x $scripts_dir/vim.sh
-#source $scripts_dir/vim.sh
-
-# Start feh installation
-#chmod a+x $scripts_dir/feh.sh
-#source $scripts_dir/feh.sh
 
 #####
