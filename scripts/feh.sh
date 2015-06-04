@@ -12,7 +12,7 @@ if [[ $has_feh -eq 0 ]]; then
 	echo "feh already installed"
 else
 	echo "feh not installed, starting installation"
-	sudo pacman -S feh
+	sudo pacman -S feh imagemagick
 fi
 
 # Create symlink to the updated vim config file
