@@ -6,7 +6,7 @@ original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
 config_dir=$HOME/dev/dotfiles/config
 scripts_dir=$HOME/dev/dotfiles/scripts
-is_git=$?
+scripts="i3 urxvt vim feh"
 
 #####
 
@@ -17,9 +17,16 @@ is_git=$?
 # Update and upgrade pacman
 sudo pacman -Syyu
 
-# Install Git from official repositories
-echo -n "Installing Git... "
-sudo pacman -S git
+# Checking if Git is installed
+pacman -Qs git > /dev/null
+has_git=$?
+if [[ $has_git -eq 0 ]]; then
+	echo "Git already installed!"
+else
+	echo -n "Git not installed. Installing Git... "
+	sudo pacman -S git
+	echo "DONE!"
+fi
 
 # Git basic configuration
 echo "Please enter the user.name you will use with Git"
@@ -47,12 +54,28 @@ echo "Cloning dotfiles repository... "
 git clone https://github.com/$user/dotfiles.git
 echo "DONE!"
 
+# Start launching scripts
+for script in $scripts; do
+	echo "Giving executable permission to $script.sh"
+	chmod +x $script.sh
+	echo "Executing $script.sh"
+	source $script.sh
+done
+
 # Start i3 installation
-chmod a+x $scripts_dir/i3.sh
-source $scripts_dir/i3.sh
+#chmod a+x $scripts_dir/i3.sh
+#source $scripts_dir/i3.sh
 
 # Start URxvt installation
-chmod a+x $scripts_dir/urxvt.sh
-source $scripts_dir/urxvt.sh
+#chmod a+x $scripts_dir/urxvt.sh
+#source $scripts_dir/urxvt.sh
+
+# Start vim installation
+#chmod a+x $scripts_dir/vim.sh
+#source $scripts_dir/vim.sh
+
+# Start feh installation
+#chmod a+x $scripts_dir/feh.sh
+#source $scripts_dir/feh.sh
 
 #####
