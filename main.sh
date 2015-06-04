@@ -57,9 +57,9 @@ echo "DONE!"
 # Start launching scripts
 for script in $scripts; do
 	echo "Giving executable permission to $script.sh"
-	chmod +x $script.sh
+	chmod +x $scripts_dir/$script.sh
 	echo "Executing $script.sh"
-	source $script.sh
+	source $scripts_dir/$script.sh
 done
 
 # Start i3 installation
