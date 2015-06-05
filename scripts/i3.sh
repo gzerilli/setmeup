@@ -42,6 +42,9 @@ has_i3=$?
 if [[ $has_i3 -eq 0 ]]; then
 	echo "i3 Windows Manager already installed, backing up original config"
 	cp $HOME/.i3/config $original_dir/i3config
+	if [[ -f $HOME/.xinitrc ]]; then
+		cp $HOME/.xinitrc $original_dir/xinitrc
+	fi
 else
 	echo "i3 not installed, starting installation"
 	sudo pacman -S i3
@@ -53,6 +56,9 @@ echo -n "Checking if custom config file exists... "
 if [[ -f $config_dir/i3config ]]; then
 	rm $HOME/.i3/config
 	ln -s $config_dir/i3config $HOME/.i3/config
+	if [[ -f $config_dir/xinitrc ]]; then
+		rm $HOME/.xinitrc
+		ln -s $config_dir/xinitrc $HOME/.xinitrc
 else
 	echo "Custom config file not found, keeping original."
 fi

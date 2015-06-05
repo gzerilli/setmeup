@@ -6,7 +6,7 @@ original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
 config_dir=$HOME/dev/dotfiles
 scripts_dir=$HOME/dev/setmeup/scripts
-scripts="i3 urxvt vim feh mupdf htop conky"
+scripts="i3 urxvt vim feh mupdf htop conky ranger"
 
 #####
 
