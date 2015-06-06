@@ -20,7 +20,7 @@ echo -n "Checking if a background file exists... "
 if [[ -f $config_dir/background.jpg ]]; then
 	mkdir -p $HOME/pictures
 	ln -s $config_dir/background.jpg $HOME/pictures/background.jpg
-	"Background image set up!
+	echo "Background image set up!
 "
 else
 	echo "Background file not found, wallpaper not set

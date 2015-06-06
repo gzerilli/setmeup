@@ -20,7 +20,8 @@ else
 	echo "DONE!"
 fi
 
-# Create symlink to update Xorg config
+# Create symlink to update Xorg configuration
+echo "Checking if custom config file exists... "
 if [[ -f $config_dir/xinitrc ]]; then
 	rm $HOME/.xinitrc
 	ln -s $config_dir/xinitrc $HOME/.xinitrc
@@ -47,7 +48,8 @@ case $ANS in
 	3)
 		sudo pacman -S xf86-video-ati lib32-mesa-libgl;;
 	4)
-		echo "Skipping installation of video drivers"
+		echo "Skipping installation of video drivers
+"
 esac
 
 # Check if i3 is installed

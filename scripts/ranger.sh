@@ -10,7 +10,7 @@ pacman -Qs ranger > /dev/null
 has_ranger=$?
 if [[ $has_ranger -eq 0 ]]; then
 	echo "Ranger already installed, backing up original config"
-	if [[ -d $HOME/.config/ranger ]]
+	if [[ -d $HOME/.config/ranger ]]; then
 		cp -R $HOME/.config/ranger $original_dir/ranger
 	fi
 else
