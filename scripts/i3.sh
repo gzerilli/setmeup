@@ -10,10 +10,25 @@ pacman -Qs xorg > /dev/null
 has_xorg=$?
 if [[ $has_xorg -eq 0 ]]; then
 	echo "Xorg already installed"
+	if [[ -f $HOME/.xinitrc ]]; then
+		echo "Backing up config file"
+		cp $HOME/.xinitrc $original_dir/xinitrc
+	fi
 else
-	echo -n "Xorg not installed. Installing Xorg... "
+	echo "Xorg not installed. Installing Xorg... "
 	sudo pacman -S xorg-server xorg-server-utils xorg-apps xorg-xinit
 	echo "DONE!"
+fi
+
+# Create symlink to update Xorg config
+if [[ -f $config_dir/xinitrc ]]; then
+	rm $HOME/.xinitrc
+	ln -s $config_dir/xinitrc $HOME/.xinitrc
+	echo "Custom config file installed!
+"
+else
+	echo "Custom config file not found, keeping original.
+"
 fi
 
 #Install driver video
@@ -36,15 +51,12 @@ case $ANS in
 esac
 
 # Check if i3 is installed
-echo -n "Checking if i3 is installed... "
+echo "Checking if i3 is installed... "
 pacman -Qs i3 > /dev/null
 has_i3=$?
 if [[ $has_i3 -eq 0 ]]; then
-	echo "i3 Windows Manager already installed, backing up original config"
+	echo "i3 Windows Manager already installed, backing up config files"
 	cp $HOME/.i3/config $original_dir/i3config
-	if [[ -f $HOME/.xinitrc ]]; then
-		cp $HOME/.xinitrc $original_dir/xinitrc
-	fi
 else
 	echo "i3 not installed, starting installation"
 	sudo pacman -S i3
@@ -52,13 +64,13 @@ else
 fi
 
 # Create symlink to the updated i3 config file
-echo -n "Checking if custom config file exists... "
+echo "Checking if custom config file exists... "
 if [[ -f $config_dir/i3config ]]; then
 	rm $HOME/.i3/config
 	ln -s $config_dir/i3config $HOME/.i3/config
-	if [[ -f $config_dir/xinitrc ]]; then
-		rm $HOME/.xinitrc
-		ln -s $config_dir/xinitrc $HOME/.xinitrc
+	echo "Custom config file installed!
+"
 else
-	echo "Custom config file not found, keeping original."
+	echo "Custom config file not found, keeping original.
+"
 fi

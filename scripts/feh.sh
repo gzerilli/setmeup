@@ -5,7 +5,7 @@
 ##### SCRIPT
 
 # Check if feh is installed
-echo -n "Checking if feh is installed... "
+echo "Checking if feh is installed... "
 pacman -Qs feh > /dev/null
 has_feh=$?
 if [[ $has_feh -eq 0 ]]; then
@@ -18,9 +18,11 @@ fi
 # Create symlink to the updated vim config file
 echo -n "Checking if a background file exists... "
 if [[ -f $config_dir/background.jpg ]]; then
-	echo "Setting background image"
 	mkdir -p $HOME/pictures
 	ln -s $config_dir/background.jpg $HOME/pictures/background.jpg
+	"Background image set up!
+"
 else
-	echo "Background file not found, wallpaper not set"
+	echo "Background file not found, wallpaper not set
+"
 fi

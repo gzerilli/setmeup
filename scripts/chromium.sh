@@ -5,7 +5,7 @@
 ##### SCRIPT
 
 # Check if Chromium is installed
-echo -n "Checking if Chromium is installed... "
+echo "Checking if Chromium is installed... "
 pacman -Qs chromium > /dev/null
 has_chromium=$?
 if [[ $has_chromium -eq 0 ]]; then
@@ -24,6 +24,8 @@ makepkg -s
 sudo pacman -U chrom*.xz
 cd ..
 rm -r chrom*
+echo "DONE!
+"
 
 # Installing Chromium plugin for Flash from AUR
 echo "Installing Chromium plugin for Flash from AUR"
@@ -34,3 +36,5 @@ makepkg -s
 sudo pacman -U chrom*.xz
 cd ..
 rm -r chrom*
+echo "DONE!
+"
