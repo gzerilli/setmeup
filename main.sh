@@ -6,7 +6,7 @@ original_dir=$HOME/.dotfiles_original
 dev_dir=$HOME/dev
 config_dir=$HOME/dev/dotfiles
 scripts_dir=$HOME/dev/setmeup/scripts
-scripts="i3 vim feh mupdf htop conky ranger xbindkeys chromium"
+scripts="i3 vim feh mupdf htop conky ranger xbindkeys chromium zsh"
 
 #####
 
@@ -73,5 +73,9 @@ for script in $scripts; do
 	echo "Executing $script.sh"
 	source $scripts_dir/$script.sh
 done
+
+#Start zsh for configuration
+chsh -s $(which zsh)
+zsh
 
 #####
