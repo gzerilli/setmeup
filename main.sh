@@ -22,22 +22,33 @@ pacman -Qs git > /dev/null
 has_git=$?
 if [[ $has_git -eq 0 ]]; then
 	echo "Git already installed!"
+	if [[ -f $HOME/.gitconfig ]]; then
+                echo "Backing up config file"
+                cp $HOME/.gitconfig $original_dir/gitconfig
+        fi
 else
 	echo -n "Git not installed. Installing Git... "
 	sudo pacman -S git
 	echo "DONE!"
 fi
 
+# Create symlink to update Git configuration
+echo "Checking if custom config file exists... "
+if [[ -f $config_dir/gitconfig ]]; then
+        rm $HOME/.gitconfig
+        ln -s $config_dir/gitconfig $HOME/.gitconfig
+        echo "Custom config file installed!"
+else
 # Git basic configuration
-echo "Please enter the user.name you will use with Git"
-read user
-git config --global user.name  "$user"
-
-echo "Please enter the user.email you will use with Git"
-read email
-git config --global user.email "$email"
-
-echo "Git basic configuration... DONE!"
+	echo "Creating basic configuration file for Git..."
+	echo "Please enter the user.name you will use with Git"
+	read user
+	git config --global user.name  "$user"
+	echo "Please enter the user.email you will use with Git"
+	read email
+	git config --global user.email "$email"
+	echo "Git basic configuration... DONE!"
+fi
 
 # Create hidden directory to backup original configuration files
 echo -n "Creating hidden $original_dir directory to backup config files... "
