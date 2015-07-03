@@ -13,7 +13,7 @@ if [[ $has_conky -eq 0 ]]; then
 	cp $HOME/.conkyrc $original_dir/conky
 else
 	echo "Conky not installed, starting installation"
-	sudo pacman -S conky
+	sudo pacman -S conky ttf-font-awesome
 fi
 
 # Create symlink to the updated i3 config file
