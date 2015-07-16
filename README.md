@@ -15,12 +15,12 @@ In order this script will install:
     2. **[Xorg](https://wiki.archlinux.org/index.php/Xorg)** server
   2. **[vim](https://wiki.archlinux.org/index.php/Vim)** text editor
   3. **[feh](https://wiki.archlinux.org/index.php/Feh)** a lightweight image viewer that will set this background:
-    1. ![bg image](https://raw.githubusercontent.com/gzerilli/gzerilli.github.io/master/bg.jpg?token=AHmjR535_9xaCQdddFarzZzCSGjac1dYks5Vn8z_wA%3D%3D)
+    1. **[background image](http://gzerilli.github.io)**
   4. **[mupdf](http://mupdf.com/)** a lightweight PDF and XPS viewer
   5. **[htop](http://hisham.hm/htop/)** an interactive process viewer
   6. A piped **[conky](https://wiki.archlinux.org/index.php/Conky)** system monitor into i3bar using JSON inputs:
     1. **[ttf-font-awesome](http://fortawesome.github.io/Font-Awesome/)**
-    2. ![conky scrot](https://raw.githubusercontent.com/gzerilli/gzerilli.github.io/master/conky.png?token=AHmjR_DJOjsIjcLhxuxEMEe_NIXb1p3Cks5Vn8awwA%3D%3D)
+    2. **[piped conky in i3bar](http://gzerilli.github.io)**
   7. the text-based file manager **[ranger](https://wiki.archlinux.org/index.php/Ranger)** including **[UDisks](https://wiki.archlinux.org/index.php/Udisks)** and **[Udiskie](https://wiki.archlinux.org/index.php?title=Udiskie&redirect=no)** for automounting removable storage
   8. **[xbindkeys](https://wiki.archlinux.org/index.php/Xbindkeys)** to bind some multimedia keys (VolumeUP, VolumeDOWN, Mute)
   9. **[chromium](https://wiki.archlinux.org/index.php/Chromium)** web browser including:
