@@ -17,6 +17,11 @@ scripts="i3 vim feh mupdf htop conky ranger xbindkeys chromium aria2 termite zsh
 # Update and upgrade pacman
 sudo pacman -Syyu
 
+# Create hidden directory to backup original configuration files
+echo -n "Creating hidden $original_dir directory to backup config files... "
+mkdir -p $original_dir
+echo "DONE!"
+
 # Checking if Git is installed
 pacman -Qs git > /dev/null
 has_git=$?
@@ -51,11 +56,6 @@ else
 	git config --global user.email "$email"
 	echo "Git basic configuration... DONE!"
 fi
-
-# Create hidden directory to backup original configuration files
-echo -n "Creating hidden $original_dir directory to backup config files... "
-mkdir -p $original_dir
-echo "DONE!"
 
 # Create dev directory to clone the repository (personal preference)
 echo -n "Creating $dev_dir to clone the setmeup repository and change to that directory... "
