@@ -24,7 +24,8 @@ if [[ $has_git -eq 0 ]]; then
 	echo "Git already installed!"
 	if [[ -f $HOME/.gitconfig ]]; then
                 echo "Backing up config file"
-                cp $HOME/.gitconfig $original_dir/gitconfig
+		mkdir -p $original_dir/git
+                cp $HOME/.gitconfig $original_dir/git/gitconfig
         fi
 else
 	echo -n "Git not installed. Installing Git... "
@@ -34,9 +35,10 @@ fi
 
 # Create symlink to update Git configuration
 echo "Checking if custom config file exists... "
-if [[ -f $config_dir/gitconfig ]]; then
+if [[ -f $config_dir/git/gitconfig ]]; then
         rm $HOME/.gitconfig
-        ln -s $config_dir/gitconfig $HOME/.gitconfig
+        ln -s $config_dir/git/gitconfig $HOME/.gitconfig
+	ln -s $config_dir/git/gitignore_global $HOME/dev/.gitignore_global
         echo "Custom config file installed!"
 else
 # Git basic configuration
