@@ -6,7 +6,7 @@ The main.sh calls the other scripts and make use of the dotfiles repository to g
 ## Use
 1. fork both the **setmeup** and the **dotfiles** repositories
 2. **curl** the main.sh file from the **setmeup** repository
-3. answer eventual questions or decisions
+3. Run main.sh and answer to eventual choices during the configuration of the system.
 
 ## Content
 In order this script will install:
